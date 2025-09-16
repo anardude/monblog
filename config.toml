@@ -14,3 +14,7 @@ theme = "LoveIt"
 [params.header.title]
       # title name
       name = "Mon Blog"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
