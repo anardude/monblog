@@ -1,2 +1,2 @@
-# blog-test
+# Mon Blog
 Blog Test Hugo
