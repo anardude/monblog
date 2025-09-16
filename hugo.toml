@@ -1,0 +1,4 @@
+baseURL = 'https://super-blog.fr/'
+languageCode = 'fr-fr'
+title = 'Super Blog'
+theme = "LoveIt"
