@@ -1,4 +1,12 @@
-baseURL = 'https://super-blog.fr/'
+baseURL = 'https://monblog.fr/'
 languageCode = 'fr-fr'
-title = 'Super Blog'
+title = 'Mon Blog'
 theme = "LoveIt"
+[params.home]
+  # bloc "profil" en page d’accueil
+  [params.home.profile]
+    enable = true
+    subtitle = "Ici je raconte des trucs utiles (promis)"
+    # (optionnel)
+    avatarURL = "/images/uploads/avatar.png"
+    social = true   # affiche les icônes sociales si configurées
