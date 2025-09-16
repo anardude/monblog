@@ -1,22 +1,44 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Content Manager</title>
+  <meta name="robots" content="noindex" />
+  <!-- Widget Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+  <!-- CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-</body>
-</html>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on('init', user => {
-      if (!user) {
-        window.netlifyIdentity.on('login', () => {
-          document.location.href = '/admin/';
+
+  <!-- Aides de déblocage -->
+  <button onclick="window.netlifyIdentity && window.netlifyIdentity.open('login')">
+    Ouvrir la fenêtre de connexion
+  </button>
+  <button onclick="location.reload(true)" style="margin-left:8px">
+    Forcer rechargement
+  </button>
+
+  <script>
+    // Si lien d’invitation → redirige vers /admin/#invite_token=...
+    (function () {
+      const h = location.hash || '';
+      if (h.includes('invite_token') && !location.pathname.endsWith('/admin/')) {
+        location.replace('/admin/' + h);
+      }
+    })();
+
+    // S’assurer que le widget est bien chargé
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', user => {
+          // Ouvre la modale si pas connecté
+          if (!user) window.netlifyIdentity.open('login');
         });
+        // Après login, reste sur /admin/
+        window.netlifyIdentity.on('login', () => location.href = '/admin/');
       }
     });
-  }
-</script>
+  </script>
+</body>
+</html>
