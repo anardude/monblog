@@ -7,6 +7,8 @@ menu:
     identifier: "44"
     weight: 44
     parent: "44"
+categories:
+  - ia
 ---
 dddddddddddddddddddddddddddddddd
 
