@@ -6,13 +6,23 @@ media_folder: "static/images/uploads"   # où les images sont stockées
 public_folder: "/images/uploads"        # chemin utilisé dans les pages
 
 collections:
-  - name: "posts"
-    label: "Articles"
-    folder: "content/posts"
+  - name: "pages"
+    label: "Pages"
+    folder: "content"
     create: true
     slug: "{{slug}}"
     fields:
       - {label: "Titre", name: "title", widget: "string"}
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "string"}
       - {label: "Contenu", name: "body", widget: "markdown"}
+      - label: "Menu principal"
+        name: "menu"
+        widget: "object"
+        fields:
+          - label: "main"
+            name: "main"
+            widget: "object"
+            fields:
+              - {label: "Inclure ?", name: "identifier", widget: "string", required: false}
+              - {label: "Poids (ordre)", name: "weight", widget: "number", required: false}
+              # mets "docs" ici pour faire un sous-menu sous 'docs'
+              - {label: "Parent (optionnel)", name: "parent", widget: "string", required: false}
