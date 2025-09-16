@@ -10,3 +10,7 @@ theme = "LoveIt"
     # (optionnel)
     avatarURL = "/images/uploads/avatar.png"
     social = true   # affiche les icônes sociales si configurées
+
+[params.header.title]
+      # title name
+      name = "Mon Blog"
